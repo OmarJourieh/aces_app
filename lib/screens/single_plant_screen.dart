@@ -12,7 +12,7 @@ class SinglePlantScreen extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: getAppBar(title: plant.name!),
+      appBar: getAppBar(title: plant.name!, context: context),
       body: ListView(
         children: [
           Row(

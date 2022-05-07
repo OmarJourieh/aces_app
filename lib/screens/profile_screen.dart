@@ -10,7 +10,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: getBottomNavBar(context),
       backgroundColor: Colors.white,
-      appBar: getAppBar(title: "Profile"),
+      appBar: getAppBar(title: "Profile", context: context),
       body: Center(
         child: Text("Profile Screen"),
       ),

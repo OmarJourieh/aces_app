@@ -1,6 +1,8 @@
+import 'package:aces_app/providers/auths_provider.dart';
 import 'package:aces_app/providers/navigation_provider.dart';
 import 'package:aces_app/screens/forum_screen.dart';
 import 'package:aces_app/screens/home_screen.dart';
+import 'package:aces_app/screens/login_screen.dart';
 import 'package:aces_app/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,18 +23,40 @@ getBottomNavBar(context) {
           );
           break;
         case 1:
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(
-              builder: (_) => ForumScreen(),
-            ),
-          );
+          if (Provider.of<AuthsProvider>(context, listen: false).token !=
+              null) {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (_) => ForumScreen(),
+              ),
+            );
+          } else {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => LoginScreen(
+                  destination: "forum",
+                ),
+              ),
+            );
+          }
           break;
         case 2:
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(
-              builder: (_) => ProfileScreen(),
-            ),
-          );
+          if (Provider.of<AuthsProvider>(context, listen: false).token !=
+              null) {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (_) => ProfileScreen(),
+              ),
+            );
+          } else {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => LoginScreen(
+                  destination: "profile",
+                ),
+              ),
+            );
+          }
           break;
       }
     },

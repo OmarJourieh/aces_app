@@ -1,4 +1,6 @@
+import 'package:aces_app/providers/auths_provider.dart';
 import 'package:aces_app/providers/diseases_provider.dart';
+import 'package:aces_app/providers/forum_provider.dart';
 import 'package:aces_app/providers/navigation_provider.dart';
 import 'package:aces_app/providers/plants_provider.dart';
 import 'package:aces_app/screens/home_screen.dart';
@@ -12,6 +14,8 @@ void main() {
         ChangeNotifierProvider(create: (context) => PlantsProvider()),
         ChangeNotifierProvider(create: (context) => DiseasesProvider()),
         ChangeNotifierProvider(create: (context) => NavigationProvider()),
+        ChangeNotifierProvider(create: (context) => AuthsProvider()),
+        ChangeNotifierProvider(create: (context) => ForumProvider()),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

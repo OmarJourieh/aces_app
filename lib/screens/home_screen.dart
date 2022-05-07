@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: getBottomNavBar(context),
       backgroundColor: Colors.white,
-      appBar: getAppBar(title: "ACES"),
+      appBar: getAppBar(title: "ACES", context: context),
       body: FutureBuilder(
         future: Provider.of<PlantsProvider>(context).getAllPlants(),
         builder: (context, AsyncSnapshot snapshot) {
