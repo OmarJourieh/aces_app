@@ -111,7 +111,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 String response =
                     await Provider.of<AuthsProvider>(context, listen: false)
                         .register(
-                  User(email: email, password: password, name: name),
+                  User(
+                    email: email!.trim().toLowerCase(),
+                    password: password!.trim(),
+                    name: name!.trim(),
+                  ),
                 );
                 if (response == "success") {
                   ScaffoldMessenger.of(context).showSnackBar(

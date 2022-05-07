@@ -4,7 +4,7 @@ import 'package:aces_app/models/user.dart';
 class Post {
   int? id;
   int? userId;
-  Null? title;
+  String? title;
   String? content;
   String? createdAt;
   String? updatedAt;

@@ -39,14 +39,17 @@ class AuthsProvider extends ChangeNotifier {
       body: jsonEncode(user),
     );
 
-    String data = res.body;
+    String data = jsonDecode(res.body)['token'];
+
+    print("OK LOOK: $data");
 
     if (data == "fail") {
       print('fail');
       return "fail";
     } else {
       token = data;
-      print(token);
+      this.user = User.fromJson(jsonDecode(res.body)['user'][0]);
+      notifyListeners();
       return "success";
     }
   }
@@ -54,6 +57,7 @@ class AuthsProvider extends ChangeNotifier {
   Future<void> logout() async {
     print("logout");
     token = null;
+    user = null;
     notifyListeners();
   }
 }

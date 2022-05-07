@@ -90,7 +90,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 String response =
                     await Provider.of<AuthsProvider>(context, listen: false)
                         .login(
-                  User(email: email, password: password),
+                  User(
+                    email: email!.trim().toLowerCase(),
+                    password: password!.trim(),
+                  ),
                 );
                 if (response == "success") {
                   if (widget.destination == "profile") {
