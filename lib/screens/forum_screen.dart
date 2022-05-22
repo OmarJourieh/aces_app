@@ -101,7 +101,7 @@ class ForumScreen extends StatelessWidget {
                               showDialog(
                                 context: context,
                                 builder: (_) => AlertDialog(
-                                  content: Text(
+                                  content: const Text(
                                     "Are you sure you want to delete this post?",
                                   ),
                                   actions: [
@@ -129,7 +129,7 @@ class ForumScreen extends StatelessWidget {
                                           );
                                         }
                                       },
-                                      child: Text("Yes"),
+                                      child: const Text("Yes"),
                                     ),
                                   ],
                                 ),
@@ -140,7 +140,7 @@ class ForumScreen extends StatelessWidget {
                               color: Colors.red[900],
                             ),
                           )
-                        : Icon(
+                        : const Icon(
                             Icons.ac_unit,
                             color: Colors.white,
                           ),
